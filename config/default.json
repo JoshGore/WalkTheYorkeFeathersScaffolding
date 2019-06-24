@@ -10,5 +10,74 @@
     "environmentsAllowingSeedData": [
       ""
     ]
-  }
+  },
+  "authentication": {
+    "secret": "a4762656a3446e834829869bda556456d5298efcf01f2adf34ce9bfca42a8921293389ba89462407dcff7536e8dcd0de3677b25e0f253ec28a9c5e69aa44bab669a13643dcd1ad88ad46c11839eda7cac816cbe4333f58d3ad7d50141af2ada77d6863ee0da78b10b3ea0a4ef63af16f2157196d3ca1e5849c704fc9584cb8f1025207727ecfc5ed35a405fb280f0067b86a26c266148c4851a8395a038ee9fd975d12aed1bb7e849e443ad4ff2e5c55f7f7db6c1044a23c44f1bc078a92b4144b0f9ec221641f7d733967f77e141d26511c6e868eccc3d59f6a02759a717ad0ea58c997fe371a0ba091ec96e7fcabb0856543479c14b7df56eee6a6179880ae",
+    "strategies": [
+      "jwt",
+      "local"
+    ],
+    "path": "/authentication",
+    "service": "users",
+    "jwt": {
+      "header": {
+        "typ": "access"
+      },
+      "audience": "https://yourdomain.com",
+      "subject": "anonymous",
+      "issuer": "feathers",
+      "algorithm": "HS256",
+      "expiresIn": "1d"
+    },
+    "local": {
+      "entity": "user",
+      "usernameField": "email",
+      "passwordField": "password"
+    },
+    "auth0": {
+      "clientID": "your auth0 client id",
+      "clientSecret": "your auth0 client secret",
+      "successRedirect": "/",
+      "domain": "mydomain.auth0.com",
+      "scopes": [
+        "profile"
+      ]
+    },
+    "google": {
+      "clientID": "your google client id",
+      "clientSecret": "your google client secret",
+      "successRedirect": "/",
+      "scope": [
+        "profile openid email"
+      ]
+    },
+    "facebook": {
+      "clientID": "your facebook client id",
+      "clientSecret": "your facebook client secret",
+      "successRedirect": "/",
+      "scope": [
+        "public_profile",
+        "email"
+      ],
+      "profileFields": [
+        "id",
+        "displayName",
+        "first_name",
+        "last_name",
+        "email",
+        "gender",
+        "profileUrl",
+        "birthday",
+        "picture",
+        "permissions"
+      ]
+    },
+    "cookie": {
+      "enabled": true,
+      "name": "feathers-jwt",
+      "httpOnly": false,
+      "secure": false
+    }
+  },
+  "postgres": "postgres://postgres:password@localhost:5432/walk_the_yorke_backend"
 }

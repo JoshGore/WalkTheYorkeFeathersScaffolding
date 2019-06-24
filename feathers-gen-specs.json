@@ -18,6 +18,45 @@
       "socketio"
     ]
   },
-  "services": {},
-  "hooks": {}
+  "services": {
+    "users": {
+      "name": "users",
+      "nameSingular": "user",
+      "subFolder": "",
+      "fileName": "users",
+      "adapter": "sequelize",
+      "path": "/users",
+      "isAuthEntity": true,
+      "requiresAuth": true,
+      "graphql": true
+    },
+    "issues": {
+      "name": "issues",
+      "nameSingular": "issue",
+      "subFolder": "",
+      "fileName": "issues",
+      "adapter": "sequelize",
+      "path": "/issues",
+      "isAuthEntity": false,
+      "requiresAuth": false,
+      "graphql": true
+    }
+  },
+  "hooks": {},
+  "authentication": {
+    "strategies": [
+      "local",
+      "auth0",
+      "google",
+      "facebook"
+    ],
+    "entity": "users"
+  },
+  "connections": {
+    "sequelize": {
+      "database": "postgres",
+      "adapter": "sequelize",
+      "connectionString": "postgres://postgres:password@localhost:5432/walk_the_yorke_backend"
+    }
+  }
 }

@@ -59,3 +59,17 @@ __0.1.0__
 Copyright (c) 2018
 
 Licensed under the [MIT license](LICENSE).
+
+# Notes on Installation and Configuration
+## Installing postgresql/postgis
+## Creating sequalize connection or service
+## Creating sequalize migrations
+## Issues Table Structure
+issue id
+category id
+issue description
+name
+email
+phone
+# Request to create asset
+curl -H "Content-Type: application/json" -X POST -d '{"type":1,"details":"dummy issue","userName":"John Doe","userContact":"0123 456 789","geom":{"type":"point","coordinates":[39.807222,-76.984722]}}' http://localhost:3030/issues
